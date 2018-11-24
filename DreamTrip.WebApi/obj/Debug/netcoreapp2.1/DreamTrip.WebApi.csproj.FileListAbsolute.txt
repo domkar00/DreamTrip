@@ -1,0 +1,14 @@
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.deps.json
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.runtimeconfig.json
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.runtimeconfig.dev.json
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csprojAssemblyReference.cache
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorAssemblyInfo.cache
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorAssemblyInfo.cs
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.AssemblyInfoInputs.cache
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.AssemblyInfo.cs
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
+C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
