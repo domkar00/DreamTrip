@@ -12227,11 +12227,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KarysD\\source\\repos\\DreamTrip.WebApi\\DreamTrip.WebApi.csproj",
+      "projectUniqueName": "D:\\_Private\\PŁ\\Sem 1\\_Ebiznes-project\\DreamTrip\\DreamTrip.WebApi\\DreamTrip.WebApi.csproj",
       "projectName": "DreamTrip.WebApi",
-      "projectPath": "C:\\Users\\KarysD\\source\\repos\\DreamTrip.WebApi\\DreamTrip.WebApi.csproj",
+      "projectPath": "D:\\_Private\\PŁ\\Sem 1\\_Ebiznes-project\\DreamTrip\\DreamTrip.WebApi\\DreamTrip.WebApi.csproj",
       "packagesPath": "C:\\Users\\KarysD\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KarysD\\source\\repos\\DreamTrip.WebApi\\obj\\",
+      "outputPath": "D:\\_Private\\PŁ\\Sem 1\\_Ebiznes-project\\DreamTrip\\DreamTrip.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
