@@ -12,3 +12,17 @@ C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.
 C:\Users\KarysD\source\repos\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
 C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
 C:\Users\KarysD\source\repos\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.deps.json
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.runtimeconfig.json
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.runtimeconfig.dev.json
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csprojAssemblyReference.cache
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csproj.CoreCompileInputs.cache
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorAssemblyInfo.cache
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorAssemblyInfo.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.AssemblyInfoInputs.cache
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.AssemblyInfo.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorTargetAssemblyInfo.cache
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb

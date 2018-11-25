@@ -9,9 +9,10 @@ using DreamTrip.WebApi.Models;
 
 namespace DreamTrip.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Produces("application/json")]
+    [Route("api/country")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class CountryController : Controller
     {
         private readonly DatabaseContext _context;
 
