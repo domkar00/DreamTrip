@@ -22,8 +22,8 @@ namespace DreamTrip.WebApi.Controllers
         }
         
         // GET: api/User
-        [HttpGet]
-        public bool GetUser([FromForm] User user)
+        [HttpGet("{{username}/{password}}")]
+        public bool GetUser([FromRoute] User user)
         {
             return _context.Users.Any(e => e.UserName.Equals(user.UserName) && e.Password.Equals(user.Password));
         }
@@ -65,7 +65,7 @@ namespace DreamTrip.WebApi.Controllers
 
         // POST: api/User
         [HttpPost]
-        public IActionResult PostUser([FromBody] User user)
+        public IActionResult RegisterUser([FromBody] User user)
         {
             if (!ModelState.IsValid)
             {
