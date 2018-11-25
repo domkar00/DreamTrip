@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public string Source { get; set; }
         public bool IsMain { get; set; }
+        public int TripId { get; set; }
         public Trip Trip { get; set; }
     }
 }

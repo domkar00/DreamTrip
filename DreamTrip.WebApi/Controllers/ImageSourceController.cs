@@ -21,30 +21,11 @@ namespace DreamTrip.WebApi.Controllers
             _context = context;
         }
 
-        // GET: api/ImageSource
-        [HttpGet]
-        public IEnumerable<ImageSource> GetImageSources()
-        {
-            return _context.ImageSources;
-        }
-
         // GET: api/ImageSource/5
         [HttpGet("{id}")]
-        public IActionResult GetImageSource([FromRoute] int id)
+        public IEnumerable<ImageSource> GetImageSource([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var imageSource = _context.ImageSources.Find(id);
-
-            if (imageSource == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(imageSource);
+            return _context.ImageSources.Where(e => e.TripId == id);
         }
 
         // PUT: api/ImageSource/5
