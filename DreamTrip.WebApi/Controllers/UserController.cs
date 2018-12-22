@@ -22,15 +22,17 @@ namespace DreamTrip.WebApi.Controllers
         }
         
         // GET: api/User
-        [HttpGet]
-        public bool GetUser()
+        [HttpGet("{id}")]
+        public bool GetUser([FromForm] string username, [FromForm] string password)
         {
-            return false;
+            var user = _context.Users.SingleOrDefault(x => x.UserName.Equals(username));
+
+            return user != null;
         }
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public IActionResult PutUser([FromRoute] int id, [FromForm] User user)
+        public IActionResult PutUser([FromRoute] int id, [FromBody] User user)
         {
             if (!ModelState.IsValid)
             {

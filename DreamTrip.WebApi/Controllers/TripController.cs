@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using DreamTrip.WebApi.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DreamTrip.WebApi.Models;
@@ -20,9 +22,21 @@ namespace DreamTrip.WebApi.Controllers
 
         // GET: api/Trip
         [HttpGet]
-        public IEnumerable<Trip> GetTrips()
+        public IEnumerable<TripDTO> GetTrips()
         {
-            return _context.Trips;
+            var trips = _context.Trips;
+            var imageSources = _context.ImageSources;
+            return trips.Select(trip => new TripDTO()
+            {
+                Id = trip.Id,
+                Price = trip.Price,
+                Header = trip.Header,
+                Description = trip.Description,
+                IsPromoted = trip.IsPromoted,
+                ImageSources = imageSources.Where(image => image.TripId == trip.Id),
+                AgencyId = trip.AgencyId,
+                CityId = trip.CityId
+            });
         }
 
         // GET: api/Trip/5
