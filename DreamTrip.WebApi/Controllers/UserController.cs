@@ -32,7 +32,7 @@ namespace DreamTrip.WebApi.Controllers
 
         // PUT: api/User/5
         [HttpPut("{id}")]
-        public IActionResult PutUser([FromRoute] int id, [FromBody] User user)
+        public IActionResult PutUser([FromRoute] Guid id, [FromBody] User user)
         {
             if (!ModelState.IsValid)
             {
@@ -52,14 +52,6 @@ namespace DreamTrip.WebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
             }
 
             return NoContent();
@@ -100,10 +92,6 @@ namespace DreamTrip.WebApi.Controllers
 
             return Ok(user);
         }
-
-        private bool UserExists(int id)
-        {
-            return _context.Users.Any(e => e.Id == id);
-        }
+        
     }
 }

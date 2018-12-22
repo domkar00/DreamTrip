@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace DreamTrip.WebApi.Models
 {
@@ -6,7 +7,7 @@ namespace DreamTrip.WebApi.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DbSet<City> Cities { get; set; }
-        public DbSet<Trip> Trips { get; set; }
+        public ICollection<City> Cities { get; set; }
+        public ICollection<Trip> Trips { get; set; }
     }
 }

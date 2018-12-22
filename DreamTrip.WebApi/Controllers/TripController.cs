@@ -49,13 +49,30 @@ namespace DreamTrip.WebApi.Controllers
             }
 
             var trip = _context.Trips.Find(id);
-
-            if (trip == null)
+            var imageSources = _context.ImageSources.Where(image => image.TripId == id);
+            var agency = _context.Agencies.SingleOrDefault(x => x.Id == trip.AgencyId);
+            var city = _context.Cities.SingleOrDefault(x => x.Id == trip.CityId);
+            var country = _context.Countries.SingleOrDefault(x => x.Id == city.CountryId);
+            foreach (var imageSource in imageSources)
             {
-                return NotFound();
+                imageSource.Trip = null;
             }
-
-            return Ok(trip);
+            var tripDTO = new TripDTO()
+            {
+                Id = trip.Id,
+                Price = trip.Price,
+                Header = trip.Header,
+                Description = trip.Description,
+                IsPromoted = trip.IsPromoted,
+                ImageSources = imageSources,
+                AgencyId = trip.AgencyId,
+                CityId = trip.CityId,
+                CityName = city.Name,
+                CountryId = country.Id,
+                CountryName = country.Name,
+                Agency = agency.Name
+            };
+            return Ok(tripDTO);
         }
 
         // PUT: api/Trip/5

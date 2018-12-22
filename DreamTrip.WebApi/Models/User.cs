@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using DreamTrip.WebApi.Enums;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,7 +9,8 @@ namespace DreamTrip.WebApi.Models
     public class User
     {
         [Required]
-        public int Id { get; set; }
+        [Key]
+        public Guid Id { get; set; }
         [Required]
         public int UserTypeId { get; set; }
         public UserType UserType => (UserType) UserTypeId;
@@ -23,7 +26,9 @@ namespace DreamTrip.WebApi.Models
         public string ZipCode { get; set; }
         public string Phone { get; set; }
 
-        public DbSet<Order> Orders { get; set; }
+        public bool IsVerified { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

@@ -91,7 +91,7 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<double>("TotalPrice");
 
-                    b.Property<int>("UserId");
+                    b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
 
@@ -107,6 +107,8 @@ namespace DreamTrip.WebApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("OrderId");
+
+                    b.Property<int>("Quantity");
 
                     b.Property<int?>("TripId");
 
@@ -154,9 +156,8 @@ namespace DreamTrip.WebApi.Migrations
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
@@ -164,6 +165,8 @@ namespace DreamTrip.WebApi.Migrations
                         .IsRequired();
 
                     b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsVerified");
 
                     b.Property<string>("LastName");
 

@@ -6,5 +6,6 @@
         public Order Order { get; set; }
         public Trip Trip { get; set; }
         public double TripPrice { get; set; }
+        public int Quantity { get; set; }
     }
 }

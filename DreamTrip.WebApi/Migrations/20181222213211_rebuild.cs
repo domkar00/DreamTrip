@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DreamTrip.WebApi.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class rebuild : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,15 +38,17 @@ namespace DreamTrip.WebApi.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<Guid>(nullable: false),
                     UserTypeId = table.Column<int>(nullable: false),
-                    UserName = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     ZipCode = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true)
+                    Phone = table.Column<string>(nullable: true),
+                    IsVerified = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,8 +81,9 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: true),
-                    InCart = table.Column<bool>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: false),
+                    InCart = table.Column<bool>(nullable: false),
+                    TotalPrice = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,7 +93,7 @@ namespace DreamTrip.WebApi.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,8 +104,11 @@ namespace DreamTrip.WebApi.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Price = table.Column<double>(nullable: false),
                     Header = table.Column<string>(nullable: true),
-                    AgencyId = table.Column<int>(nullable: true),
-                    CityId = table.Column<int>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    IsPromoted = table.Column<bool>(nullable: false),
+                    AgencyId = table.Column<int>(nullable: false),
+                    CityId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
                     CountryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -112,13 +119,13 @@ namespace DreamTrip.WebApi.Migrations
                         column: x => x.AgencyId,
                         principalTable: "Agencies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Trips_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Trips_Countries_CountryId",
                         column: x => x.CountryId,
@@ -128,29 +135,24 @@ namespace DreamTrip.WebApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Carts",
+                name: "ImageSources",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<int>(nullable: true),
-                    OrderId = table.Column<int>(nullable: true)
+                    Source = table.Column<string>(nullable: true),
+                    IsMain = table.Column<bool>(nullable: false),
+                    TripId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.PrimaryKey("PK_ImageSources", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Carts_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
+                        name: "FK_ImageSources_Trips_TripId",
+                        column: x => x.TripId,
+                        principalTable: "Trips",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Carts_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -181,19 +183,14 @@ namespace DreamTrip.WebApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carts_OrderId",
-                table: "Carts",
-                column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Carts_UserId",
-                table: "Carts",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Cities_CountryId",
                 table: "Cities",
                 column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ImageSources_TripId",
+                table: "ImageSources",
+                column: "TripId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderDetails_OrderId",
@@ -229,7 +226,7 @@ namespace DreamTrip.WebApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Carts");
+                name: "ImageSources");
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");

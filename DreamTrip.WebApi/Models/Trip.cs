@@ -10,7 +10,7 @@ namespace DreamTrip.WebApi.Models
         public string Header { get; set; }
         public string Description { get; set; }
         public bool IsPromoted { get; set; }
-        public DbSet<ImageSource> ImageSources { get; set; }
+        public ICollection<ImageSource> ImageSources { get; set; }
 
         public Agency Agency { get; set; }
         public int AgencyId { get; set; }

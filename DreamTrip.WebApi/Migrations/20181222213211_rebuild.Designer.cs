@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DreamTrip.WebApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181124143318_CartDeleted")]
-    partial class CartDeleted
+    [Migration("20181222213211_rebuild")]
+    partial class rebuild
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,6 +64,25 @@ namespace DreamTrip.WebApi.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("DreamTrip.WebApi.Models.ImageSource", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsMain");
+
+                    b.Property<string>("Source");
+
+                    b.Property<int>("TripId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TripId");
+
+                    b.ToTable("ImageSources");
+                });
+
             modelBuilder.Entity("DreamTrip.WebApi.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -72,7 +91,9 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<bool>("InCart");
 
-                    b.Property<int?>("UserId");
+                    b.Property<double>("TotalPrice");
+
+                    b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
 
@@ -108,15 +129,21 @@ namespace DreamTrip.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AgencyId");
+                    b.Property<int>("AgencyId");
 
-                    b.Property<int?>("CityId");
+                    b.Property<int>("CityId");
 
                     b.Property<int?>("CountryId");
 
+                    b.Property<string>("Description");
+
                     b.Property<string>("Header");
 
+                    b.Property<bool>("IsPromoted");
+
                     b.Property<double>("Price");
+
+                    b.Property<int>("Quantity");
 
                     b.HasKey("Id");
 
@@ -131,21 +158,27 @@ namespace DreamTrip.WebApi.Migrations
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
+                    b.Property<string>("Email")
+                        .IsRequired();
+
                     b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsVerified");
 
                     b.Property<string>("LastName");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired();
 
                     b.Property<string>("Phone");
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("UserName")
+                        .IsRequired();
 
                     b.Property<int>("UserTypeId");
 
@@ -164,11 +197,20 @@ namespace DreamTrip.WebApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("DreamTrip.WebApi.Models.ImageSource", b =>
+                {
+                    b.HasOne("DreamTrip.WebApi.Models.Trip", "Trip")
+                        .WithMany("ImageSources")
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("DreamTrip.WebApi.Models.Order", b =>
                 {
                     b.HasOne("DreamTrip.WebApi.Models.User", "User")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.OrderDetail", b =>
@@ -186,11 +228,13 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     b.HasOne("DreamTrip.WebApi.Models.Agency", "Agency")
                         .WithMany("Trips")
-                        .HasForeignKey("AgencyId");
+                        .HasForeignKey("AgencyId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DreamTrip.WebApi.Models.City", "City")
                         .WithMany()
-                        .HasForeignKey("CityId");
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DreamTrip.WebApi.Models.Country")
                         .WithMany("Trips")

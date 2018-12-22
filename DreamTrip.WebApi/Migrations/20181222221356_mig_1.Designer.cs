@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DreamTrip.WebApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181125181547_ImageSourseTableAdded")]
-    partial class ImageSourseTableAdded
+    [Migration("20181222221356_mig_1")]
+    partial class mig_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,7 +74,7 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<string>("Source");
 
-                    b.Property<int?>("TripId");
+                    b.Property<int>("TripId");
 
                     b.HasKey("Id");
 
@@ -93,7 +93,7 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<double>("TotalPrice");
 
-                    b.Property<int>("UserId");
+                    b.Property<Guid>("UserId");
 
                     b.HasKey("Id");
 
@@ -109,6 +109,8 @@ namespace DreamTrip.WebApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("OrderId");
+
+                    b.Property<int>("Quantity");
 
                     b.Property<int?>("TripId");
 
@@ -139,6 +141,8 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<string>("Header");
 
+                    b.Property<bool>("IsPromoted");
+
                     b.Property<double>("Price");
 
                     b.HasKey("Id");
@@ -154,21 +158,27 @@ namespace DreamTrip.WebApi.Migrations
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address");
 
+                    b.Property<string>("Email")
+                        .IsRequired();
+
                     b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsVerified");
 
                     b.Property<string>("LastName");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired();
 
                     b.Property<string>("Phone");
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("UserName")
+                        .IsRequired();
 
                     b.Property<int>("UserTypeId");
 
@@ -191,7 +201,8 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     b.HasOne("DreamTrip.WebApi.Models.Trip", "Trip")
                         .WithMany("ImageSources")
-                        .HasForeignKey("TripId");
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.Order", b =>
