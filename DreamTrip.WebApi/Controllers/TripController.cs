@@ -35,7 +35,9 @@ namespace DreamTrip.WebApi.Controllers
                 IsPromoted = trip.IsPromoted,
                 ImageSources = imageSources.Where(image => image.TripId == trip.Id),
                 AgencyId = trip.AgencyId,
-                CityId = trip.CityId
+                CityId = trip.CityId,
+                TripDate = trip.TripDate,
+                CreateDate = trip.CreateDate
             });
         }
 

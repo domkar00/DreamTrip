@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DreamTrip.WebApi.Models;
 
 namespace DreamTrip.WebApi.DTO
@@ -17,5 +18,7 @@ namespace DreamTrip.WebApi.DTO
         public string CityName { get; set; }
         public int CountryId { get; set; }
         public string CountryName { get; set; }
+        public DateTime TripDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

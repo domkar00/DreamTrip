@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace DreamTrip.WebApi.Models
@@ -17,5 +18,8 @@ namespace DreamTrip.WebApi.Models
 
         public City City { get; set; }
         public int CityId { get; set; }
+
+        public DateTime TripDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

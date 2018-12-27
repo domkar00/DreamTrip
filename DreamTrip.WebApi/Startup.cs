@@ -1,4 +1,6 @@
-﻿using DreamTrip.WebApi.Models;
+﻿using DreamTrip.WebApi.Configurations;
+using DreamTrip.WebApi.Models;
+using DreamTrip.WebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,9 @@ namespace DreamTrip.WebApi
             var connection = @"Server=(local);Database=DreamTripDB.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<DatabaseContext>
                 (options => options.UseSqlServer(connection));
+
+            services.AddSingleton<IEmailConfiguration>(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            services.AddTransient<IEmailService, EmailService>();
 
             services.AddMvc();
         }

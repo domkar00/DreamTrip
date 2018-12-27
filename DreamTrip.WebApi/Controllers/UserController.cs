@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DreamTrip.WebApi.Models;
+using DreamTrip.WebApi.Services;
 
 namespace DreamTrip.WebApi.Controllers
 {
@@ -15,19 +16,39 @@ namespace DreamTrip.WebApi.Controllers
     public class UserController : Controller
     {
         private readonly DatabaseContext _context;
+        private IEmailService _emailService;
 
-        public UserController(DatabaseContext context)
+        public UserController(DatabaseContext context, IEmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
         
         // GET: api/User
-        [HttpGet("{id}")]
-        public bool GetUser([FromForm] string username, [FromForm] string password)
+        [HttpPost("login")]
+        public IActionResult GetUser([FromBody] User user)
         {
-            var user = _context.Users.SingleOrDefault(x => x.UserName.Equals(username));
+            var obtainedUser = _context.Users.SingleOrDefault(x => x.UserName.Equals(user.UserName) 
+                                                                   && x.Password.Equals(user.Password));
+            if(obtainedUser == null)
+                return BadRequest();
+            return Ok(obtainedUser);
+        }
 
-            return user != null;
+        // POST: api/User
+        [HttpPost]
+        public IActionResult PostUser([FromBody] User user)
+        {
+            if (_context.Users.FirstOrDefault(x => (x.UserName.Equals(user.UserName) || x.Email.Equals(user.Email))) != null)
+            {
+                return BadRequest();
+            }
+            user.Id = Guid.NewGuid();
+            user.UserTypeId = 1;
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
         // PUT: api/User/5
@@ -57,20 +78,7 @@ namespace DreamTrip.WebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/User
-        [HttpPost]
-        public IActionResult PostUser([FromBody] User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            _context.Users.Add(user);
-            _context.SaveChanges();
-
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
-        }
+       
 
         // DELETE: api/User/5
         [HttpDelete("{id}")]

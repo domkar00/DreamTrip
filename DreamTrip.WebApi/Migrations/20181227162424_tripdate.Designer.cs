@@ -4,14 +4,16 @@ using DreamTrip.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DreamTrip.WebApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20181227162424_tripdate")]
+    partial class tripdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -135,7 +137,7 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<int?>("CountryId");
 
-                    b.Property<DateTime>("CreateDate");
+                    b.Property<DateTime>("Date");
 
                     b.Property<string>("Description");
 
@@ -144,8 +146,6 @@ namespace DreamTrip.WebApi.Migrations
                     b.Property<bool>("IsPromoted");
 
                     b.Property<double>("Price");
-
-                    b.Property<DateTime>("TripDate");
 
                     b.HasKey("Id");
 
