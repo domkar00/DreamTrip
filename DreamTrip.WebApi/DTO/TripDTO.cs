@@ -20,5 +20,6 @@ namespace DreamTrip.WebApi.DTO
         public string CountryName { get; set; }
         public DateTime TripDate { get; set; }
         public DateTime CreateDate { get; set; }
+        public int Quantity { get; set; }
     }
 }

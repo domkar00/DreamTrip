@@ -87,7 +87,11 @@ namespace DreamTrip.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("InCart");
+                    b.Property<bool>("CanCancel");
+
+                    b.Property<bool>("IsPaid");
+
+                    b.Property<DateTime>("OrderDate");
 
                     b.Property<double>("TotalPrice");
 
@@ -106,11 +110,11 @@ namespace DreamTrip.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("OrderId");
+                    b.Property<int>("OrderId");
 
                     b.Property<int>("Quantity");
 
-                    b.Property<int?>("TripId");
+                    b.Property<int>("TripId");
 
                     b.Property<double>("TripPrice");
 
@@ -216,11 +220,13 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     b.HasOne("DreamTrip.WebApi.Models.Order", "Order")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DreamTrip.WebApi.Models.Trip", "Trip")
                         .WithMany()
-                        .HasForeignKey("TripId");
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.Trip", b =>

@@ -36,20 +36,40 @@ namespace DreamTrip.WebApi.Controllers
                 ImageSources = imageSources.Where(image => image.TripId == trip.Id),
                 AgencyId = trip.AgencyId,
                 CityId = trip.CityId,
+                CountryId = _context.Cities.FirstOrDefault(x => x.Id == trip.CityId).CountryId,
                 TripDate = trip.TripDate,
                 CreateDate = trip.CreateDate
             });
         }
 
+        [HttpGet("order/{id}")]
+        public IEnumerable<TripDTO> GetTripsFromOrder([FromRoute] int id)
+        {
+            var detailList = _context.OrderDetails.Where(x => x.OrderId.Equals(id));
+            var details = detailList.Select(x => x.TripId);
+            var trips = _context.Trips.Where(x => details.Contains(x.Id));
+            var imageSources = _context.ImageSources;
+            return trips.Select(trip => new TripDTO()
+            {
+                Id = trip.Id,
+                Price = trip.Price,
+                Header = trip.Header,
+                Description = trip.Description,
+                IsPromoted = trip.IsPromoted,
+                ImageSources = imageSources.Where(image => image.TripId == trip.Id),
+                AgencyId = trip.AgencyId,
+                CityId = trip.CityId,
+                CountryId = _context.Cities.FirstOrDefault(x => x.Id == trip.CityId).CountryId,
+                TripDate = trip.TripDate,
+                CreateDate = trip.CreateDate,
+                Quantity = detailList.FirstOrDefault(x => x.TripId.Equals(trip.Id)).Quantity
+            });
+        }
+
         // GET: api/Trip/5
         [HttpGet("{id}")]
-        public IActionResult GetTrip([FromRoute] int id)
+        public TripDTO GetTrip([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var trip = _context.Trips.Find(id);
             var imageSources = _context.ImageSources.Where(image => image.TripId == id);
             var agency = _context.Agencies.SingleOrDefault(x => x.Id == trip.AgencyId);
@@ -59,7 +79,7 @@ namespace DreamTrip.WebApi.Controllers
             {
                 imageSource.Trip = null;
             }
-            var tripDTO = new TripDTO()
+            return new TripDTO()
             {
                 Id = trip.Id,
                 Price = trip.Price,
@@ -72,9 +92,10 @@ namespace DreamTrip.WebApi.Controllers
                 CityName = city.Name,
                 CountryId = country.Id,
                 CountryName = country.Name,
-                Agency = agency.Name
+                Agency = agency.Name,
+                TripDate = trip.TripDate,
+                CreateDate = trip.CreateDate
             };
-            return Ok(tripDTO);
         }
 
         // PUT: api/Trip/5

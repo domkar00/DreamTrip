@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DreamTrip.WebApi.Migrations
 {
-    public partial class rebuild : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,9 +40,9 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     UserTypeId = table.Column<int>(nullable: false),
-                    Password = table.Column<string>(nullable: false),
-                    UserName = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
@@ -82,8 +82,10 @@ namespace DreamTrip.WebApi.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<Guid>(nullable: false),
-                    InCart = table.Column<bool>(nullable: false),
-                    TotalPrice = table.Column<double>(nullable: false)
+                    CanCancel = table.Column<bool>(nullable: false),
+                    IsPaid = table.Column<bool>(nullable: false),
+                    TotalPrice = table.Column<double>(nullable: false),
+                    OrderDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,7 +110,8 @@ namespace DreamTrip.WebApi.Migrations
                     IsPromoted = table.Column<bool>(nullable: false),
                     AgencyId = table.Column<int>(nullable: false),
                     CityId = table.Column<int>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false),
+                    TripDate = table.Column<DateTime>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
                     CountryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -161,9 +164,10 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    OrderId = table.Column<int>(nullable: true),
-                    TripId = table.Column<int>(nullable: true),
-                    TripPrice = table.Column<double>(nullable: false)
+                    OrderId = table.Column<int>(nullable: false),
+                    TripId = table.Column<int>(nullable: false),
+                    TripPrice = table.Column<double>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -173,13 +177,13 @@ namespace DreamTrip.WebApi.Migrations
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_OrderDetails_Trips_TripId",
                         column: x => x.TripId,
                         principalTable: "Trips",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

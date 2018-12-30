@@ -18,7 +18,7 @@ namespace DreamTrip.WebApi.Models
 
         public City City { get; set; }
         public int CityId { get; set; }
-
+        //public int CountryId { get; set; }
         public DateTime TripDate { get; set; }
         public DateTime CreateDate { get; set; }
     }

@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DreamTrip.WebApi.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DreamTrip.WebApi.Models;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Bcpg;
 
 namespace DreamTrip.WebApi.Controllers
 {
@@ -22,10 +25,10 @@ namespace DreamTrip.WebApi.Controllers
         }
 
         // GET: api/Order
-        [HttpGet]
-        public IEnumerable<Order> GetOrders()
+        [HttpGet("history/{userId}")]
+        public IEnumerable<Order> GetOrders([FromRoute] Guid userId)
         {
-            return _context.Orders;
+            return _context.Orders.Where(x => x.UserId.Equals(userId));
         }
 
         // GET: api/Order/5
@@ -84,14 +87,26 @@ namespace DreamTrip.WebApi.Controllers
 
         // POST: api/Order
         [HttpPost]
-        public IActionResult PostOrder([FromBody] Order order)
+        public IActionResult PostOrder([FromForm] string trips, [FromForm] string userId)
         {
-            if (!ModelState.IsValid)
+            var tripsList = JsonConvert.DeserializeObject<TripDTO[]>(trips);
+            var order = new Order()
             {
-                return BadRequest(ModelState);
-            }
-
+                UserId = new Guid(userId),
+                OrderDate  = DateTime.Now,
+                TotalPrice = tripsList.Sum(x => x.Price * x.Quantity)
+            };
             _context.Orders.Add(order);
+            _context.SaveChanges();
+            var orderDetails = tripsList.Select(x => new OrderDetail()
+            {
+                OrderId = order.Id,
+                TripId = x.Id,
+                TripPrice = x.Price,
+                Quantity = x.Quantity
+            }).ToList();
+
+            _context.OrderDetails.AddRange(orderDetails);
             _context.SaveChanges();
 
             return CreatedAtAction("GetOrder", new { id = order.Id }, order);

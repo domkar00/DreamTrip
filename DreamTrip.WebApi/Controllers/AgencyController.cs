@@ -46,7 +46,7 @@ namespace DreamTrip.WebApi.Controllers
 
         // PUT: api/Agencies/5
         [HttpPut("{id}")]
-        public IActionResult PutAgency([FromRoute] int id, [FromForm] Agency agency)
+        public IActionResult PutAgency([FromRoute] int id, [FromBody] Agency agency)
         {
             if (!ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace DreamTrip.WebApi.Controllers
 
         // POST: api/Agencies
         [HttpPost]
-        public IActionResult PostAgency([FromForm] Agency agency)
+        public IActionResult PostAgency([FromBody] Agency agency)
         {
             if (!ModelState.IsValid)
             {

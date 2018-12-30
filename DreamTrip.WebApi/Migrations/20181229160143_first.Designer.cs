@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DreamTrip.WebApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20181227162424_tripdate")]
-    partial class tripdate
+    [Migration("20181229160143_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,7 +89,11 @@ namespace DreamTrip.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("InCart");
+                    b.Property<bool>("CanCancel");
+
+                    b.Property<bool>("IsPaid");
+
+                    b.Property<DateTime>("OrderDate");
 
                     b.Property<double>("TotalPrice");
 
@@ -108,11 +112,11 @@ namespace DreamTrip.WebApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("OrderId");
+                    b.Property<int>("OrderId");
 
                     b.Property<int>("Quantity");
 
-                    b.Property<int?>("TripId");
+                    b.Property<int>("TripId");
 
                     b.Property<double>("TripPrice");
 
@@ -137,7 +141,7 @@ namespace DreamTrip.WebApi.Migrations
 
                     b.Property<int?>("CountryId");
 
-                    b.Property<DateTime>("Date");
+                    b.Property<DateTime>("CreateDate");
 
                     b.Property<string>("Description");
 
@@ -146,6 +150,8 @@ namespace DreamTrip.WebApi.Migrations
                     b.Property<bool>("IsPromoted");
 
                     b.Property<double>("Price");
+
+                    b.Property<DateTime>("TripDate");
 
                     b.HasKey("Id");
 
@@ -216,11 +222,13 @@ namespace DreamTrip.WebApi.Migrations
                 {
                     b.HasOne("DreamTrip.WebApi.Models.Order", "Order")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DreamTrip.WebApi.Models.Trip", "Trip")
                         .WithMany()
-                        .HasForeignKey("TripId");
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DreamTrip.WebApi.Models.Trip", b =>
