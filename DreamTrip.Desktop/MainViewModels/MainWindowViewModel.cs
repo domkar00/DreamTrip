@@ -1,4 +1,4 @@
-﻿using System.Windows;
+﻿using System.Net.Http;
 using DreamTrip.Desktop.Enums;
 using DreamTrip.Desktop.Views;
 
@@ -7,6 +7,8 @@ namespace DreamTrip.Desktop.ViewModels
     public class MainWindowViewModel : ViewBaseModel
     {
         public static string PathAPI = "http://localhost:8081/api/";
+        public static readonly HttpClient Client = new HttpClient();
+
         public MainWindowViewModel()
         {
             OpenUsersView = new ChooseModuleCommand(Signal, AvailableViews.UsersView);

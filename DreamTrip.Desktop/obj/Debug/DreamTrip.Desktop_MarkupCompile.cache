@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\App.xaml
-7-317757120
+13-960069270
 
-31-938409824
+37988743521
 16578268338
-MainWindow.xaml;Views\AgenciesView.xaml;Views\CitiesView.xaml;Views\CountriesView.xaml;Views\ImageView.xaml;Views\TripsView.xaml;Views\UsersView.xaml;
+MainWindow.xaml;Views\AgenciesView.xaml;Views\CitiesView.xaml;Views\CountriesView.xaml;Views\ImageView.xaml;Views\TripsView.xaml;Views\UsersView.xaml;Windows\AgencyWindow.xaml;Windows\CityWindow.xaml;Windows\CountryWindow.xaml;Windows\ImageWindow.xaml;Windows\TripWindow.xaml;Windows\UserWindow.xaml;
 
 False
 

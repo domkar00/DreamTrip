@@ -25,3 +25,4 @@ D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netc
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorTargetAssemblyInfo.cache
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csprojAssemblyReference.cache

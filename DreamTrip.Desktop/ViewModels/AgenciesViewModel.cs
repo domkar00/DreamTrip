@@ -1,12 +1,15 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using DreamTrip.WebApi.Models;
+using Newtonsoft.Json;
 
 namespace DreamTrip.Desktop.ViewModels
 {
     public class AgenciesViewModel
     {
-        static HttpClient client = new HttpClient();
+        public Agency SelectedAgency { get; set; }
 
         public AgenciesViewModel()
         {
@@ -15,25 +18,16 @@ namespace DreamTrip.Desktop.ViewModels
 
         public async void GetUsers()
         {
-            var project = await GetAPIAsync(MainWindowViewModel.PathAPI + "Agency/1");
+            //var agency = new City()
+            //{
+            //    Id = 13,
+            //    Name = "AAA"
+            //};
+            //var result = await DeleteAgency(13);
         }
 
 
-        static async Task<Agency> GetAPIAsync(string path)
-        {
-            Agency project = null;
-
-            var response = await client.GetAsync(path);
-
-            if (response.IsSuccessStatusCode)
-            {
-                project = await response.Content.ReadAsAsync<Agency>();
-            }
-
-            return project;
-
-        }
-
+        
 
     }
 }

@@ -60,3 +60,15 @@ D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Dre
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\DreamTrip.Desktop.csproj.CopyComplete
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\DreamTrip.Desktop.exe
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\DreamTrip.Desktop.pdb
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\AgencyWindow.g.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\AgencyWindow.baml
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\CityWindow.g.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\CountryWindow.g.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\ImageWindow.g.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\TripWindow.g.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\UserWindow.g.cs
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\CityWindow.baml
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\CountryWindow.baml
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\ImageWindow.baml
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\TripWindow.baml
+D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.Desktop\obj\Debug\Windows\UserWindow.baml

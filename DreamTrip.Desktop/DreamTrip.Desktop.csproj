@@ -100,6 +100,24 @@
     <Compile Include="Views\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AgencyWindow.xaml.cs">
+      <DependentUpon>AgencyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CityWindow.xaml.cs">
+      <DependentUpon>CityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CountryWindow.xaml.cs">
+      <DependentUpon>CountryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ImageWindow.xaml.cs">
+      <DependentUpon>ImageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TripWindow.xaml.cs">
+      <DependentUpon>TripWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -133,6 +151,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AgencyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CountryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ImageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TripWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

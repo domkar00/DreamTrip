@@ -47,7 +47,7 @@ namespace DreamTrip.WebApi.Controllers
 
         // PUT: api/Cities/5
         [HttpPut("{id}")]
-        public IActionResult PutCity([FromRoute] int id, [FromForm] City city)
+        public IActionResult PutCity([FromRoute] int id, [FromBody] City city)
         {
             if (!ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace DreamTrip.WebApi.Controllers
 
         // POST: api/Cities
         [HttpPost]
-        public IActionResult PostCity([FromForm] City city)
+        public IActionResult PostCity([FromBody] City city)
         {
             if (!ModelState.IsValid)
             {
