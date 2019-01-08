@@ -17,7 +17,6 @@ D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netc
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.runtimeconfig.dev.json
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.dll
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\bin\Debug\netcoreapp2.1\DreamTrip.WebApi.pdb
-D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csprojAssemblyReference.cache
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.csproj.CoreCompileInputs.cache
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorAssemblyInfo.cache
 D:\_Private\PŁ\Sem 1\_Ebiznes-project\DreamTrip\DreamTrip.WebApi\obj\Debug\netcoreapp2.1\DreamTrip.WebApi.RazorAssemblyInfo.cs

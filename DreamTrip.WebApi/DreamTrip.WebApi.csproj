@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
@@ -18,6 +19,34 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DreamTrip.Desktop\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\Views\AgenciesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\Views\CitiesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\Views\CountriesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\Views\ImageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\Views\TripsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="DreamTrip.Desktop\Views\UsersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 
 </Project>

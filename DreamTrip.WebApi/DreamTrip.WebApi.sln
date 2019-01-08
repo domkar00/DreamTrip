@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamTrip.WebApi", "DreamTrip.WebApi.csproj", "{3D124D9C-5CAC-4938-BDE0-FBC56051723C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTrip.Desktop", "..\DreamTrip.Desktop\DreamTrip.Desktop.csproj", "{83BB460F-2100-41B2-B44D-731F0CA2BFBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3D124D9C-5CAC-4938-BDE0-FBC56051723C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D124D9C-5CAC-4938-BDE0-FBC56051723C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D124D9C-5CAC-4938-BDE0-FBC56051723C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83BB460F-2100-41B2-B44D-731F0CA2BFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83BB460F-2100-41B2-B44D-731F0CA2BFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83BB460F-2100-41B2-B44D-731F0CA2BFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83BB460F-2100-41B2-B44D-731F0CA2BFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
