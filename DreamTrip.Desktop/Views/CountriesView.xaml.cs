@@ -68,7 +68,7 @@ namespace DreamTrip.Desktop.Views
             Update();
         }
 
-        private void UpdateBlogs(IEnumerable<City> list)
+        private void UpdateBlogs(IEnumerable<Country> list)
         {
             Countries.Items.Clear();
             foreach (var item in list)
@@ -79,13 +79,13 @@ namespace DreamTrip.Desktop.Views
 
         private void SelectAgency_Click(object sender, RoutedEventArgs e)
         {
-            (new CityWindow(null, this)).Show();
+            (new CountryWindow(null, this)).Show();
         }
 
         private void EditAgency_Click(object sender, RoutedEventArgs e)
         {
-            var agency = Cities.SelectedItem as City;
-            new CityWindow(agency, this).Show();
+            var agency = Countries.SelectedItem as Country;
+            new CountryWindow(agency, this).Show();
         }
 
         private async void DeleteThis_Click(object sender, RoutedEventArgs e)
@@ -93,7 +93,7 @@ namespace DreamTrip.Desktop.Views
             var messageBoxResult = MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                var deleteAgency = await DeleteAgency((Cities.SelectedItem as City).Id);
+                var deleteAgency = await DeleteAgency((Countries.SelectedItem as Country).Id);
                 Update();
             }
         }

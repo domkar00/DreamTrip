@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +17,7 @@ namespace DreamTrip.Desktop.Windows
     public partial class CityWindow : Window
     {
         private static readonly string Path = MainWindowViewModel.PathAPI + "City";
+        private static readonly string PathCountry = MainWindowViewModel.PathAPI + "Country";
         public City City { get; set; }
         private CitiesView Parent { get; set; }
         public bool IsEdit { get; set; }
@@ -37,6 +40,8 @@ namespace DreamTrip.Desktop.Windows
 
             AgencyId.Text = "" + City.Id;
             AgencyName.Text = City.Name;
+            Update();
+            CountryBox.SelectedValue = City.CountryId;
         }
 
         static async Task<City> PostAgency(City agency)
@@ -74,6 +79,7 @@ namespace DreamTrip.Desktop.Windows
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
             City.Name = AgencyName.Text;
+            City.CountryId = Convert.ToInt32(CountryBox.SelectedValue.ToString());
             if (IsEdit)
             {
                 var agency = await PutAgency(City);
@@ -85,5 +91,34 @@ namespace DreamTrip.Desktop.Windows
             Parent.Update();
             this.Hide();
         }
+
+        static async Task<IEnumerable<Country>> GetAgencyAll()
+        {
+            IEnumerable<Country> project = null;
+
+            var response = await MainWindowViewModel.Client.GetAsync(PathCountry);
+
+            if (response.IsSuccessStatusCode)
+            {
+                project = await response.Content.ReadAsAsync<IEnumerable<Country>>();
+            }
+            return project;
+        }
+
+        public async void Update()
+        {
+            var list = await GetAgencyAll();
+            UpdateBlogs(list);
+        }
+
+        private void UpdateBlogs(IEnumerable<Country> list)
+        {
+            CountryBox.Items.Clear();
+            foreach (var item in list)
+            {
+                CountryBox.Items.Add(item);
+            }
+        }
+
     }
 }

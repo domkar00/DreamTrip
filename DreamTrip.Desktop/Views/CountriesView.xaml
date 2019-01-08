@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DreamTrip.Desktop.Views"
              xmlns:dc="clr-namespace:DreamTrip.Desktop.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             Height="400" Width="500">
 
     <UserControl.DataContext>
         <dc:CountriesViewModel/>
