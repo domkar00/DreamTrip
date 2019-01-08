@@ -18,7 +18,7 @@ namespace DreamTrip.Desktop.ViewModels
 
         public async void GetUsers()
         {
-            //var agency = new City()
+            //var agency = new User()
             //{
             //    Id = 13,
             //    Name = "AAA"

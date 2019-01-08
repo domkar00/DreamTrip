@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamTrip.Desktop.Windows"
         mc:Ignorable="d"
-        Title="CityWindow" Height="294.906" Width="240.747">
+        Title="UserWindow" Height="294.906" Width="240.747">
     <Grid Margin="0,0,4,9.4">
         <Label Content="Modify city" HorizontalAlignment="Left" Margin="67,30,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="30,125,0,0" VerticalAlignment="Top"/>

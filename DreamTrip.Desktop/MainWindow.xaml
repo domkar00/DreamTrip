@@ -22,31 +22,41 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding Path=IsVisible, Mode=TwoWay}" BorderThickness="1">
-            <StackPanel>
+            <StackPanel Name="MainMenu">
                 <Button
-                    Margin="15,10,14.6,10" Height="50"
+                    Margin="15,65,14.6,10" Height="50"
                     Command="{Binding OpenUsersView}" Content="Users"/>
                 <Button
                     Margin="15 10 15 10" Height="50"
                     Command="{Binding OpenAgencyView}" Content="Agencies"/>
-                <Button
+                <!--<Button
                     Margin="15 10 15 10" Height="50"
-                    Command="{Binding OpenTripView}" Content="Trips"/>
+                    Command="{Binding OpenTripView}" Content="Trips"/>-->
                 <Button
                     Margin="15 10 15 10" Height="50"
                     Command="{Binding OpenCityView}" Content="Cities"/>
                 <Button
                     Margin="15 10 15 10" Height="50"
                     Command="{Binding OpenCountryView}" Content="Countries"/>
-                <Button
+                <!--<Button
                     Margin="15 10 15 10" Height="50"
-                    Command="{Binding OpenImageView}" Content="Images"/>
+                    Command="{Binding OpenImageView}" Content="Images"/>-->
             </StackPanel>
 
 
         </Border>
         <ContentControl Grid.Column="1"
                         Content="{Binding CurrentContent, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        
+        <Label Name="SingI1" Content="Username:" Grid.Column="1" HorizontalAlignment="Left" Margin="171,184,0,0" VerticalAlignment="Top"/>
+        <Label Name="SingI2" Content="Password:" Grid.Column="1" HorizontalAlignment="Left" Margin="171,221,0,0" VerticalAlignment="Top"/>
+        <Label Name="SingI3"  Content="Sign in" Grid.Column="1" HorizontalAlignment="Left" Margin="231,129,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Rectangle Name="SingI4"  Fill="Transparent" HorizontalAlignment="Left" Height="190" Stroke="Black" VerticalAlignment="Top" Width="254" Grid.Column="1" Margin="137,116,0,0"/>
+        <TextBox Name="UsernameBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="251,188,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox Name="PasswordBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="251,225,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <Button Name="SingI5" Content="Sign in" Grid.Column="1" HorizontalAlignment="Left" Margin="171,264,0,0" VerticalAlignment="Top" Width="200" Click="SingIn"/>
 
 
     </Grid>

@@ -23,7 +23,14 @@ namespace DreamTrip.WebApi.Controllers
             _context = context;
             _emailService = emailService;
         }
-        
+
+        // GET: api/User
+        [HttpGet]
+        public IEnumerable<User> GetUsers()
+        {
+            return _context.Users;
+        }
+
         // GET: api/User
         [HttpPost("login")]
         public IActionResult GetUser([FromBody] User user)

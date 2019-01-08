@@ -16,7 +16,7 @@ namespace DreamTrip.Desktop.Windows
     /// </summary>
     public partial class CityWindow : Window
     {
-        private static readonly string Path = MainWindowViewModel.PathAPI + "City";
+        private static readonly string Path = MainWindowViewModel.PathAPI + "User";
         private static readonly string PathCountry = MainWindowViewModel.PathAPI + "Country";
         public City City { get; set; }
         private CitiesView Parent { get; set; }

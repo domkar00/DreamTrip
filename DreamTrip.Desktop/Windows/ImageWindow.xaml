@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DreamTrip.Desktop.Windows"
         mc:Ignorable="d"
-        Title="ImageWindow" Height="450" Width="800">
-    <Grid>
+        Title="ImageWindow" Height="369.016" Width="241.511">
+    <Grid Margin="0,0,4,9.4">
+        <Label Content="Modify image" HorizontalAlignment="Left" Margin="52,31,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Source:" HorizontalAlignment="Left" Margin="30,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="52,86,0,0" VerticalAlignment="Top"/>
+        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="80,89,0,0" TextWrapping="Wrap" Name="AgencyId" Text="Id" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,129,0,0" TextWrapping="Wrap" Name="Source" Text="Source" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="10,301,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="146,301,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="IsMain:" HorizontalAlignment="Left" Margin="32,163,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="" HorizontalAlignment="Left" Name="IsMain"  Margin="84,173,0,0" VerticalAlignment="Top"/>
         
+        
+        <Button Content="Select file" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="211" Click="Button_Click"/>
+        <TextBox Name="ImageFile" HorizontalAlignment="Left" Height="23" Margin="10,232,0,0" TextWrapping="Wrap" Text="Path" VerticalAlignment="Top" Width="211"/>
     </Grid>
 </Window>

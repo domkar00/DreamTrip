@@ -24,7 +24,7 @@ namespace DreamTrip.Desktop.Views
     /// </summary>
     public partial class CitiesView : UserControl
     {
-        private static readonly string Path = MainWindowViewModel.PathAPI + "City";
+        private static readonly string Path = MainWindowViewModel.PathAPI + "User";
         public CitiesView()
         {
             InitializeComponent();
